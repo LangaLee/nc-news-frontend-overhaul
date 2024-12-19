@@ -1,22 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import SideBarButton from "../sideBarButton";
-import { useState } from "react";
+import SideBar from "../sideBar/sideBar";
 type HeaderProps = {
   profile_image_url: string;
 };
 const Header = (userData: HeaderProps) => {
-  const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col">
       <header className=" flex content-center">
-        <button
-          className=" flex-none"
-          onClick={() => {
-            setOpen((prev) => !prev);
-          }}
-        >
-          <SideBarButton open={open} />
-        </button>
+        <SideBar />
         <div className="flex flex-auto justify-center items-center">
           {" "}
           <h1 className="">Album and Track Reviews</h1>

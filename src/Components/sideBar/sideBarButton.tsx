@@ -1,6 +1,10 @@
 import { motion } from "motion/react";
 
-const SideBarButton = (props: { open: boolean }) => {
+type sideBarButtonProps = {
+  open: boolean;
+};
+
+const SideBarButton = (props: sideBarButtonProps) => {
   const open = props.open;
   return (
     <motion.div className=" ml-2 mt-3" animate={open ? "open" : "closed"}>
