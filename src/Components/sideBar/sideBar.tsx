@@ -5,15 +5,17 @@ import SideBarOptions from "./sideBarOptions";
 const SideBar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <button
-      className="max-h-8"
-      onClick={() => {
-        setOpen((prev) => !prev);
-      }}
-    >
-      <SideBarButton open={open} />
+    <div>
+      <button
+        className="max-h-8"
+        onClick={() => {
+          setOpen((prev) => !prev);
+        }}
+      >
+        <SideBarButton open={open} />
+      </button>
       {open ? <SideBarOptions open={open} /> : null}
-    </button>
+    </div>
   );
 };
 
