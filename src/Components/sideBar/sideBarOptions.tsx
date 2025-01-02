@@ -1,6 +1,10 @@
 import { motion } from "motion/react";
+import { SetStateAction, Dispatch } from "react";
 import { Link } from "react-router-dom";
-type SideBarOptionsProps = { open: boolean };
+type SideBarOptionsProps = {
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+};
 
 const variants = {
   open: {
@@ -21,22 +25,60 @@ const variants = {
   },
 };
 
-const SideBarOptions = ({ open }: SideBarOptionsProps) => {
-  const options = [
-    "Post new Review",
-    "View genres",
-    "Trending authors",
-    "Manage your reviews",
-    "View all reviews",
-  ];
+const SideBarOptions = ({ open, setOpen }: SideBarOptionsProps) => {
+  const closeSideBar = () => {
+    setOpen((prev) => !prev);
+  };
   return (
     <motion.div animate={open ? "open" : "closed"}>
-      <motion.div className="h-screen bg-yellow-300" variants={variants}>
-        {options.map((option) => (
-          <Link to={`/${option.split(" ").at(-1)}`} key={`page for ${option}`}>
-            <p className="mt-10">{option}</p>
-          </Link>
-        ))}
+      <motion.div className="h-screen" variants={variants}>
+        <motion.ul>
+          <motion.li
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ delay: 1 }}
+          >
+            <Link to="/reviews" onClick={closeSideBar}>
+              All reviews
+            </Link>
+          </motion.li>
+          <motion.li
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ delay: 1.3 }}
+          >
+            <Link to="/genres" onClick={closeSideBar}>
+              View genres
+            </Link>
+          </motion.li>
+          <motion.li
+            initial={{ x: -125 }}
+            animate={{ x: 0 }}
+            transition={{ delay: 1.6 }}
+          >
+            <Link to="/TrendingReviews" onClick={closeSideBar}>
+              Trending reviews
+            </Link>
+          </motion.li>
+          <motion.li
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ delay: 1.9 }}
+          >
+            <Link to="/newReview" onClick={closeSideBar}>
+              Post review
+            </Link>
+          </motion.li>
+          <motion.li
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ delay: 2.2 }}
+          >
+            <Link to="/myReviews" onClick={closeSideBar}>
+              Your reviews
+            </Link>
+          </motion.li>
+        </motion.ul>
       </motion.div>
     </motion.div>
   );

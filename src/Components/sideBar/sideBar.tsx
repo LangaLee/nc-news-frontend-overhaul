@@ -14,7 +14,7 @@ const SideBar = () => {
       >
         <SideBarButton open={open} />
       </button>
-      {open ? <SideBarOptions open={open} /> : null}
+      {open ? <SideBarOptions open={open} setOpen={setOpen} /> : null}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Reviews from "./Components/mainComponents/Reviews";
 import Home from "./Components/mainComponents/Home";
 import Genres from "./Components/mainComponents/Genres";
-import TrendingAuthors from "./Components/mainComponents/TrendingAuthors";
+import TrendingReviews from "./Components/mainComponents/TrendingReviews";
 import NewReview from "./Components/mainComponents/NewReview";
 import UserReviews from "./Components/mainComponents/UserReviews";
 
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/genres" element={<Genres />} />
-        <Route path="/trendingAuthors" element={<TrendingAuthors />} />
+        <Route path="/trendingReviews" element={<TrendingReviews />} />
         <Route path="/newReview" element={<NewReview />} />
         <Route path="/myReviews" element={<UserReviews />} />
       </Routes>
